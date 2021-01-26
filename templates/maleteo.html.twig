@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
+    <title>Maleteo</title>
+</head>
+<header>
+    <div class="foto-logo">
+        <img src="assets/logo.svg">
+    </div>
+</header>
+
+<body>
+    <section class="jumbotron">
+        <article class="motto">
+            <div class="gas">
+                <p>Gana dinero guardando equipaje a viajeros como tu</p>
+                <img src="assets/google-play.svg">
+                <img src="assets/app-store.svg">
+            </div>    
+        </article>
+    </section>
+
+    <section class="comFun">
+        <h1>¿Como funciona?</h1>
+
+        <div class="flex-container">
+            <div>
+                <div class="num">1</div>
+                <div class="titulo">Date de alta</div><br>
+                <div class="texto">Rellena el formulario con tus datos.</div>
+            </div>
+            <div>
+                <div class="num">2</div>
+                <div class="titulo">Haz tu reserva.</div><br>
+                <div class="texto">Donde y cuando quieres dejar tu equipaje.</div>
+            </div>
+            <div>
+                <div class="num">3</div>
+                <div class="titulo">&nbsp;¡LISTO!</div><br>
+                <div class="texto">Ya puedes dejar tu equipaje</div>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <div class="foto-movil">
+                <img src="assets/iPhoneX.png">
+            </div>
+
+            <div></div>
+
+            
+            <form action="{{ path('maleteo') }}" method="Post">
+                <h2>Empecemos</h2>
+
+                <label>Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="  Nombre completo">
+
+                <label>Email</label>
+                <input type="email" id="email" name="email" placeholder="  tuemail@gmail.com">
+
+                <label>Ciudad</label>
+                <select id="ciudades" name="ciudades">
+                    <option value="Madrid">Madrid</option>
+                    <option value="Barcelona">Barcelona</option>
+                    <option value="Jaen">Jaén</option>
+                    <option value="Malaga">Málaga</option>
+                </select>
+                <div>
+                    <p><input style="display:inline;" id="check" type="checkbox" name="politica">Aceptas la <a href="#">política de privacidad</a></p>
+
+                </div>
+                
+                <input id="boton" type="submit" value="ENVIAR">
+            </form>
+        </div>
+    </section>
+
+    <section class="opiniones">
+        <h3>Opiniones de otros guardianes</h3>
+        <h4><a href="comentarios">Deja tu comentario</a></h4>
+        <div class="flex-container" id="flex3">
+
+        {% for comentario in comentarios %}
+            <div>
+                 <div class="com-bord">
+                    <div class="comentarios"><i>"{{comentario.comentarios}}"</i></div>
+                    <div class="nombre">{{comentario.nombre}}</div>
+                    <div class="apellido">{{comentario.apellidos}}</div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        
+    </section>
+    <footer>
+    <div class="footer-logo">
+        <img src="assets/logo.svg">
+        <p>Hecho en Madrid</p>
+    </div>
+</footer>
+</body>
+
+
+</html>
